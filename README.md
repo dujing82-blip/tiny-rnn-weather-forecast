@@ -14,7 +14,7 @@ last 14 days of temperature
  tomorrow's temperature
 ```
 
-The notebook creates three years of simulated daily temperature. The data contains a clear yearly seasonal cycle, multi-day warm/cold weather changes, and small daily noise.
+The project includes a ready-to-use CSV dataset with three years (1,095 days) of daily temperature. Students download the data from GitHub, visualize it, turn it into sequences, and train an RNN.
 
 ## What students learn
 
@@ -43,15 +43,15 @@ The code deliberately uses **SimpleRNN**, not LSTM or GRU, so students can first
 
 ## Data
 
-No external dataset or upload is required. The notebook creates its own weather:
+The repository includes `weather_temperature.csv`, containing 1,095 daily temperature observations with realistic seasonal and short-term variation.
+
+The notebook loads it directly with Pandas:
 
 ```python
-season = 65 + 20 * np.sin(2 * np.pi * (days - 80) / 365)
+data = pd.read_csv(DATA_URL)
 ```
 
-A smooth yearly seasonal pattern is combined with short-term weather variation and daily noise.
-
-The first two years are used for training. The third year is kept for testing.
+No data-generation code is needed in the lesson. The first two years are used for training and the third year is kept for testing.
 
 ## Run
 
